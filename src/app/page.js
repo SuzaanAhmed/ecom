@@ -1,11 +1,24 @@
+"use client"
+import { useState,useEffect } from "react";
 import Image from "next/image";
 import React from "react";
 import Navbar from "./components/navbar";
 
 export default function Home() {
+  const [products,useProducts]=useState([])
+  useEffect(() => {
+    loadData()
+  }, [])
+  
+  async function loadData() {
+    await fetch('/api/products',{method:"GET"}).then((res)=>res.json()).then((data)=>{
+      alert(JSON.stringify(data));
+    })
+  }
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
     <div className="flex flex-col">
       <img
         src="header.png"
