@@ -22,7 +22,17 @@ import { useRouter } from "next/navigation";
           router.push("/cart")
         }}
         className="bg-blue-400 hover:bg-blue-600 text-white border rounded small px-1">Add to Cart</button>
-        <button className="h-[10px] p-0 rounded m-2 ml-10 mt-100%">
+        <button 
+          onClick={(event)=>{
+            addProductToCart({
+              id:id,
+              title:title,
+              desc:desc,
+              image:image
+            })
+            router.push("/favourites")
+          }}
+        className="h-[10px] p-0 rounded m-2 ml-10 mt-100%">
           <img className="hover:bg-red-500" src="heart.png" />
         </button>
       </div>
